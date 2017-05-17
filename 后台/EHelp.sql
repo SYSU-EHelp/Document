@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.13, for osx10.11 (x86_64)
 --
--- Host: localhost    Database: EHelp
+-- Host: localhost    Database: Ehelp
 -- ------------------------------------------------------
 -- Server version	5.7.13
 
@@ -20,14 +20,16 @@
 --
 
 DROP TABLE IF EXISTS answer;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE answer (
   id int(11) NOT NULL AUTO_INCREMENT,
-  question_id int(11) NOT NULL,
   answerer_id int(11) NOT NULL,
+  date datetime NOT NULL,
   description varchar(200) NOT NULL,
-  date date NOT NULL,
+  question_id int(11) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +38,7 @@ CREATE TABLE answer (
 
 LOCK TABLES answer WRITE;
 /*!40000 ALTER TABLE answer DISABLE KEYS */;
+INSERT INTO answer VALUES (1,2,'2010-02-02 00:00:00','ads',3),(2,3,'2013-12-31 00:00:00','zxc',3);
 /*!40000 ALTER TABLE answer ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -44,13 +47,15 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS contact;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE contact (
   id int(11) NOT NULL AUTO_INCREMENT,
-  user_id int(11) NOT NULL,
-  contact_user varchar(45) NOT NULL,
   contact_phone varchar(45) NOT NULL,
+  contact_user varchar(45) NOT NULL,
+  user_id int(11) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,6 +64,7 @@ CREATE TABLE contact (
 
 LOCK TABLES contact WRITE;
 /*!40000 ALTER TABLE contact DISABLE KEYS */;
+INSERT INTO contact VALUES (1,'188','123',3),(2,'137','wer',3);
 /*!40000 ALTER TABLE contact ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,13 +73,15 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS emergency;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE emergency (
   id int(11) NOT NULL AUTO_INCREMENT,
-  launcher_id int(11) NOT NULL,
-  date date NOT NULL,
+  date datetime NOT NULL,
   finished int(11) NOT NULL,
+  launcher_id int(11) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,6 +90,7 @@ CREATE TABLE emergency (
 
 LOCK TABLES emergency WRITE;
 /*!40000 ALTER TABLE emergency DISABLE KEYS */;
+INSERT INTO emergency VALUES (1,'2018-02-02 00:00:00',1,3);
 /*!40000 ALTER TABLE emergency ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,16 +99,18 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS help;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE help (
   id int(11) NOT NULL AUTO_INCREMENT,
+  address varchar(200) NOT NULL,
+  date datetime NOT NULL,
+  description varchar(200) NOT NULL,
+  finished int(11) NOT NULL,
   launcher_id int(11) NOT NULL,
   title varchar(45) NOT NULL,
-  description varchar(200) NOT NULL,
-  date date NOT NULL,
-  address varchar(200) NOT NULL,
-  finished int(11) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,6 +119,7 @@ CREATE TABLE help (
 
 LOCK TABLES help WRITE;
 /*!40000 ALTER TABLE help DISABLE KEYS */;
+INSERT INTO help VALUES (1,'road','2017-09-21 00:00:00','help please',1,3,'help'),(2,'qwe','2013-02-12 00:00:00','asd',1,4,'qwe');
 /*!40000 ALTER TABLE help ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,14 +128,16 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS question;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE question (
   id int(11) NOT NULL AUTO_INCREMENT,
-  title varchar(45) NOT NULL,
-  description varchar(200) NOT NULL,
   asker_id int(11) NOT NULL,
-  date date NOT NULL,
+  date datetime NOT NULL,
+  description varchar(200) NOT NULL,
+  title varchar(45) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,6 +146,7 @@ CREATE TABLE question (
 
 LOCK TABLES question WRITE;
 /*!40000 ALTER TABLE question DISABLE KEYS */;
+INSERT INTO question VALUES (3,3,'2020-02-02 00:00:00','zxc','zxzxc');
 /*!40000 ALTER TABLE question ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,13 +155,15 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS response;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE response (
   id int(11) NOT NULL AUTO_INCREMENT,
-  event_type int(11) NOT NULL,
   event_id int(11) NOT NULL,
+  event_type int(11) NOT NULL,
   user_id int(11) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,6 +172,7 @@ CREATE TABLE response (
 
 LOCK TABLES response WRITE;
 /*!40000 ALTER TABLE response DISABLE KEYS */;
+INSERT INTO response VALUES (1,1,1,3);
 /*!40000 ALTER TABLE response ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,16 +181,18 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS user;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE user (
   id int(11) NOT NULL AUTO_INCREMENT,
-  username varchar(45) NOT NULL,
+  avatar varchar(45) DEFAULT NULL,
   password varchar(45) NOT NULL,
   phone varchar(15) NOT NULL,
-  avatar varchar(45) DEFAULT NULL,
-  address varchar(200) DEFAULT NULL,
+  username varchar(45) NOT NULL,
   PRIMARY KEY (id),
-  UNIQUE KEY phone_UNIQUE (phone)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  UNIQUE KEY UK_589idila9li6a4arw1t8ht1gx (phone),
+  UNIQUE KEY UK_sb8bbouer5wak8vyiiy4pf2bx (username)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,6 +201,7 @@ CREATE TABLE user (
 
 LOCK TABLES user WRITE;
 /*!40000 ALTER TABLE user DISABLE KEYS */;
+INSERT INTO user VALUES (3,NULL,'123456','1881925376','Gordan'),(4,NULL,'123456','123','Lin'),(5,'','123456','18819253762','GordanLin');
 /*!40000 ALTER TABLE user ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -193,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-11 21:27:23
+-- Dump completed on 2017-05-17 19:20:28
