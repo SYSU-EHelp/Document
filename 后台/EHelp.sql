@@ -20,8 +20,6 @@
 --
 
 DROP TABLE IF EXISTS answer;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE answer (
   id int(11) NOT NULL AUTO_INCREMENT,
   answerer_id int(11) NOT NULL,
@@ -47,8 +45,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS contact;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE contact (
   id int(11) NOT NULL AUTO_INCREMENT,
   contact_phone varchar(45) NOT NULL,
@@ -73,8 +69,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS emergency;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE emergency (
   id int(11) NOT NULL AUTO_INCREMENT,
   date datetime NOT NULL,
@@ -99,8 +93,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS help;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE help (
   id int(11) NOT NULL AUTO_INCREMENT,
   address varchar(200) NOT NULL,
@@ -128,8 +120,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS question;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE question (
   id int(11) NOT NULL AUTO_INCREMENT,
   asker_id int(11) NOT NULL,
@@ -155,8 +145,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS response;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE response (
   id int(11) NOT NULL AUTO_INCREMENT,
   event_id int(11) NOT NULL,
@@ -181,8 +169,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS user;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE user (
   id int(11) NOT NULL AUTO_INCREMENT,
   avatar varchar(45) DEFAULT NULL,
